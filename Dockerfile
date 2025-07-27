@@ -1,13 +1,13 @@
-# Start from an OpenJDK 17 image
+# Use OpenJDK 17 slim as base image
 FROM openjdk:17-jdk-slim
 
-# Set a working directory
+# Set working directory inside the container
 WORKDIR /app
 
-# Copy the Maven build artifact (the JAR file)
-COPY target/*.jar app.jar
+# Copy the JAR file from the target directory
+COPY target/ghibli-api.jar app.jar
 
-# Expose port (default Spring Boot port)
+# Expose the port used by the Spring Boot app
 EXPOSE 8080
 
 # Run the JAR file
